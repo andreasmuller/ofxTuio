@@ -28,7 +28,7 @@ class ofxTuioPoint{
 	
 public:
 	
-	ofxTuioPoint(float _xpos, float _ypos){
+	ofxTuioPoint(float _xpos = 0.0f, float _ypos = 0.0f ){
 		xpos = _xpos;
 		ypos = _ypos;
 	};

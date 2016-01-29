@@ -30,6 +30,16 @@ class ofxTuioContainer : public ofxTuioPoint{
 	
 public:
 	
+	ofxTuioContainer() {
+		sessionId = -1;
+		xspeed = 0.0f;
+		yspeed = 0.0f;
+		motion_speed = 0.0f;
+		motion_accel = 0.0f;
+		xpos = 0.0f;
+		ypos = 0.0f;
+	}
+	
 	ofxTuioContainer(long _sid, float _xpos, float _ypos) : ofxTuioPoint(xpos,  ypos){
 		sessionId = _sid;
 		xspeed = 0.0f;

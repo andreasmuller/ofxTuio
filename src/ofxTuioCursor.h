@@ -30,6 +30,9 @@ class ofxTuioCursor : public ofxTuioContainer{
 	
 public:
 	
+	ofxTuioCursor() {
+	}
+	
 	ofxTuioCursor(long _sid, int _fid, float _xpos, float _ypos) : ofxTuioContainer( _sid,  _xpos,  _ypos){
 		fingerId = _fid;
 		xpos = _xpos;
@@ -40,11 +43,20 @@ public:
 		fingerId = _tuioCursor->getFingerId();
 	};
 	
+	/*
+	ofxTuioCursor(ofxTuioCursor const &_tuioCursor) : ofxTuioContainer( (ofxTuioContainer *)&_tuioCursor ) {
+		//fingerId = _tuioCursor.getFingerId();
+	};*/
+	
 	~ofxTuioCursor(){};
 	
 	int getFingerId(){
 		return fingerId;
-	};
+	}
+	
+	void setFingerId( int _id ){
+		fingerId = _id;
+	}
 	
 protected:
 	int fingerId;
