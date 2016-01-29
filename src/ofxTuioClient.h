@@ -56,7 +56,7 @@ public:
 		while( receiver.hasWaitingMessages() )
 		{
 			ofxOscMessage m;
-			receiver.getNextMessage( &m );
+			receiver.getNextMessage( m );
 
 			if ( m.getAddress() == "/tuio/2Dobj" )
 			{
