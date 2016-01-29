@@ -233,8 +233,8 @@ public:
 		for (tit=cursorList.begin(); tit != cursorList.end(); tit++) {
 			ofxTuioCursor *blob = (*tit);
 
-			glColor3f(1.0,1.0,1.0);
-			ofEllipse(blob->getX()*ofGetWidth(), blob->getY()*ofGetHeight(), 10.0, 10.0);
+			ofSetColor( ofColor::white );
+			ofDrawEllipse(blob->getX()*ofGetWidth(), blob->getY()*ofGetHeight(), 10.0, 10.0);
 			string str = "SessionId: "+ofToString((int)(blob->getSessionId()));
 			ofDrawBitmapString(str, blob->getX()*ofGetWidth()-10.0, blob->getY()*ofGetHeight()+25.0);
 		}
@@ -243,16 +243,17 @@ public:
 	void drawObjects(){
 
 		list<ofxTuioObject*>::iterator tobj;
-		for (tobj=objectList.begin(); tobj != objectList.end(); tobj++) {
+		for (tobj=objectList.begin(); tobj != objectList.end(); tobj++)
+		{
 			ofxTuioObject *blob = (*tobj);
-			glColor3f(1.0,0.0,0.0);
-			glPushMatrix();
-		    glTranslatef(blob->getX()*ofGetWidth(), blob->getY()*ofGetHeight(), 0.0);
-			glRotatef(blob->getAngleDegrees(), 0.0, 0.0, 1.0);
-			ofRect(-10.0, -10.0, 20.0, 20.0);
-			glColor3f(1.0,1.0,1.0);
-			ofLine(0, 0, 0, 10);
-			glPopMatrix();
+			ofSetColor( ofColor::red );
+			ofPushMatrix();
+				ofTranslate(blob->getX()*ofGetWidth(), blob->getY()*ofGetHeight(), 0.0);
+				ofRotate(blob->getAngleDegrees(), 0.0, 0.0, 1.0);
+				ofDrawRectangle(-10.0, -10.0, 20.0, 20.0);
+				ofSetColor( ofColor::white );
+				ofDrawLine(0, 0, 0, 10);
+			ofPopMatrix();
 			string str = "FiducialId: "+ofToString((int)(blob->getFiducialId()));
 			ofDrawBitmapString(str, blob->getX()*ofGetWidth()-10.0, blob->getY()*ofGetHeight()+25.0);
 			str = "SessionId: "+ofToString((int)(blob->getSessionId()));
